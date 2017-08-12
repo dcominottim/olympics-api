@@ -8,7 +8,7 @@ mvn wildfly-swarm:run
 
 # Considerações de design
 
-Este projeto foi baseado em princípios de DDD (Domain-Driven Design), CQRS (Command Query Responsibility Seggregation) e, principalmente, Orientação a Objetos. Deste modo, trabalhei com os seguintes objetivos:
+Este projeto foi baseado em princípios de DDD (Domain-Driven Design), CQRS (Command Query Responsibility Segregation) e, principalmente, Orientação a Objetos. Deste modo, trabalhei com os seguintes objetivos:
 
 1. Dar ênfase ao design do Domain Model, isto é, às entidades do sistema e seus *comportamentos*. Para isso, foi aplicada uma estratégia de design baseada em "Traits", que se tornou mais factível no Java 8 devido à inclusão de métodos "default". Note que com o lançamento iminente do Java 9, os métodos acessores (getters e, principalmente, setters) poderão ser privados em vez de públicos, aprimorando o quesito de encapsulamento conforme apropriado. Todo o comportamento das entidades foi implementado a partir desse design que torna possível que outras variações sejam implementadas com rapidez e minimizando duplicação de código.
 
