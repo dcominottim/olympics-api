@@ -45,7 +45,7 @@ public interface CompetitionTrait {
                             || Duration.between(startDateTime, endDateTime).toMinutes() < MINIMUM_DURATION_IN_MINUTES;
         }
 
-        static boolean hasInvalidCompetitors(@NotNull final Step step,
+        static boolean hasInvalidCompetitors(@NotNull final StepTrait step,
                                              @NotNull final CompetitorTrait competitor1,
                                              @NotNull final CompetitorTrait competitor2) {
             Objects.requireNonNull(step);

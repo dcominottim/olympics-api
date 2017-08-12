@@ -1,5 +1,7 @@
 package br.com.cominotti.olympics_api.server.domain.model;
 
+import br.com.cominotti.olympics_api.server.domain.model.fixtures.CompetitorFixture;
+import br.com.cominotti.olympics_api.server.domain.model.fixtures.StepFixture;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -41,11 +43,30 @@ public class CompetitionTraitTest {
 
     @Test
     public void acceptsValidCompetitors() {
+        final boolean areValidCompetitors =
+            !CompetitionTrait.Validation.hasInvalidCompetitors(
+                StepFixture.newInstance(true),
+                CompetitorFixture.newCompetitor(1),
+                CompetitorFixture.newCompetitor(1)
+            )
+            && !CompetitionTrait.Validation.hasInvalidCompetitors(
+                StepFixture.newInstance(false),
+                CompetitorFixture.newCompetitor(1),
+                CompetitorFixture.newCompetitor(2)
+            );
 
+        Assert.assertTrue(areValidCompetitors);
     }
 
     @Test
     public void rejectsInvalidCompetitors() {
+        final boolean areInvalidCompetitors =
+            CompetitionTrait.Validation.hasInvalidCompetitors(
+                StepFixture.newInstance(false),
+                CompetitorFixture.newCompetitor(1),
+                CompetitorFixture.newCompetitor(1)
+            );
 
+        Assert.assertTrue(areInvalidCompetitors);
     }
 }
