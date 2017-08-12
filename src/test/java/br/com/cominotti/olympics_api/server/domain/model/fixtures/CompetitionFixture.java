@@ -15,12 +15,12 @@ public class CompetitionFixture {
 
             @Override
             public CompetitorTrait getCompetitor1() {
-                return null;
+                return CompetitorFixture.newCompetitor(1);
             }
 
             @Override
             public CompetitorTrait getCompetitor2() {
-                return null;
+                return CompetitorFixture.newCompetitor(2);
             }
 
             @Override
@@ -34,8 +34,8 @@ public class CompetitionFixture {
             }
 
             @Override
-            public Step getStep() {
-                return null;
+            public StepTrait getStep() {
+                return StepFixture.newInstance(false);
             }
 
             @Override

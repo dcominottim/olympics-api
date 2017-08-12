@@ -74,7 +74,7 @@ public class Competition implements CompetitionTrait {
         this.endDateTime = Objects.requireNonNull(endDateTime);
 
         final boolean hasInvalidTimeInterval =
-            CompetitionTrait.Validation
+            Rules
                 .hasInvalidTimeInterval(startDateTime, endDateTime);
 
         if (hasInvalidTimeInterval) {
@@ -82,7 +82,7 @@ public class Competition implements CompetitionTrait {
         }
 
         final boolean hasInvalidCompetitors =
-            CompetitionTrait.Validation
+            Rules
                 .hasInvalidCompetitors(step, competitor1, competitor2);
 
         if (hasInvalidCompetitors) {
@@ -117,7 +117,7 @@ public class Competition implements CompetitionTrait {
     }
 
     @Override
-    public Step getStep() {
+    public StepTrait getStep() {
         return step;
     }
 

@@ -25,7 +25,7 @@ public interface CompetitionTrait {
     ModalityTrait getModality();
 
     @NotNull
-    Step getStep();
+    StepTrait getStep();
 
     @NotNull
     LocalDateTime getStartDateTime();
@@ -34,7 +34,7 @@ public interface CompetitionTrait {
     LocalDateTime getEndDateTime();
 
 
-    interface Validation {
+    interface Rules {
 
         static boolean hasInvalidTimeInterval(@NotNull final LocalDateTime startDateTime,
                                               @NotNull final LocalDateTime endDateTime) {

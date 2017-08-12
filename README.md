@@ -6,6 +6,8 @@ Para executar o servidor, rode
 mvn wildfly-swarm:run
 ```
 
+Obs.: Todos os testes foram realizados em ambiente Linux (Fedora 26 64bit).
+
 # Considerações de design
 
 Este projeto foi baseado em princípios de DDD (Domain-Driven Design), CQRS (Command Query Responsibility Segregation) e, principalmente, Orientação a Objetos. Deste modo, trabalhei com os seguintes objetivos:

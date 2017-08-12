@@ -18,7 +18,7 @@ public class CompetitionTraitTest {
             startDateTime.plusMinutes(CompetitionTrait.MINIMUM_DURATION_IN_MINUTES);
 
         final boolean isInvalidTimeInterval =
-            CompetitionTrait.Validation.hasInvalidTimeInterval(
+            CompetitionTrait.Rules.hasInvalidTimeInterval(
                 startDateTime, endDateTime
             );
 
@@ -34,7 +34,7 @@ public class CompetitionTraitTest {
             startDateTime.plusMinutes(CompetitionTrait.MINIMUM_DURATION_IN_MINUTES - 1);
 
         final boolean isInvalidTimeInterval =
-            CompetitionTrait.Validation.hasInvalidTimeInterval(
+            CompetitionTrait.Rules.hasInvalidTimeInterval(
                 startDateTime, endDateTime
             );
 
@@ -44,12 +44,12 @@ public class CompetitionTraitTest {
     @Test
     public void acceptsValidCompetitors() {
         final boolean areInvalidCompetitors =
-            CompetitionTrait.Validation.hasInvalidCompetitors(
+            CompetitionTrait.Rules.hasInvalidCompetitors(
                 StepFixture.newInstance(true),
                 CompetitorFixture.newCompetitor(1),
                 CompetitorFixture.newCompetitor(1)
             )
-                && !CompetitionTrait.Validation.hasInvalidCompetitors(
+            && !CompetitionTrait.Rules.hasInvalidCompetitors(
                 StepFixture.newInstance(false),
                 CompetitorFixture.newCompetitor(1),
                 CompetitorFixture.newCompetitor(2)
@@ -61,7 +61,7 @@ public class CompetitionTraitTest {
     @Test
     public void rejectsInvalidCompetitors() {
         final boolean areInvalidCompetitors =
-            CompetitionTrait.Validation.hasInvalidCompetitors(
+            CompetitionTrait.Rules.hasInvalidCompetitors(
                 StepFixture.newInstance(false),
                 CompetitorFixture.newCompetitor(1),
                 CompetitorFixture.newCompetitor(1)
