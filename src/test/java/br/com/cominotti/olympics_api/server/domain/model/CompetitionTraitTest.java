@@ -43,8 +43,8 @@ public class CompetitionTraitTest {
 
     @Test
     public void acceptsValidCompetitors() {
-        final boolean areValidCompetitors =
-            !CompetitionTrait.Validation.hasInvalidCompetitors(
+        final boolean areInvalidCompetitors =
+            CompetitionTrait.Validation.hasInvalidCompetitors(
                 StepFixture.newInstance(true),
                 CompetitorFixture.newCompetitor(1),
                 CompetitorFixture.newCompetitor(1)
@@ -55,7 +55,7 @@ public class CompetitionTraitTest {
                 CompetitorFixture.newCompetitor(2)
             );
 
-        Assert.assertTrue(areValidCompetitors);
+        Assert.assertFalse(areInvalidCompetitors);
     }
 
     @Test
