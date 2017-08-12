@@ -12,13 +12,13 @@ public class Local implements LocalTrait {
     @Id
     @Column(name = "id")
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = SEQUENCE_NAME
+        strategy = GenerationType.SEQUENCE,
+        generator = SEQUENCE_NAME
     )
     @SequenceGenerator(
-            name = SEQUENCE_NAME,
-            sequenceName = SEQUENCE_NAME,
-            allocationSize = 1
+        name = SEQUENCE_NAME,
+        sequenceName = SEQUENCE_NAME,
+        allocationSize = 1
     )
     private Integer id;
 
@@ -26,7 +26,8 @@ public class Local implements LocalTrait {
     private String name;
 
 
-    protected Local() {}
+    protected Local() {
+    }
 
     public Local(final Integer id,
                  @NotNull final String name) {

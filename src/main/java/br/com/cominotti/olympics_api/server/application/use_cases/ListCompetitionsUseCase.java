@@ -17,7 +17,8 @@ public class ListCompetitionsUseCase implements RunnableUseCase<ListCompetitions
     private CompetitionVoRepository competitionVoRepository;
 
 
-    public ListCompetitionsUseCase() {}
+    public ListCompetitionsUseCase() {
+    }
 
     @Inject
     public ListCompetitionsUseCase(final CompetitionVoRepository competitionVoRepository) {

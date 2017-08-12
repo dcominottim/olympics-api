@@ -17,7 +17,8 @@ public class ListStepsUseCase implements RunnableUseCase<ListStepsUseCaseInput, 
     private StepVoRepository stepVoRepository;
 
 
-    public ListStepsUseCase() {}
+    public ListStepsUseCase() {
+    }
 
     @Inject
     public ListStepsUseCase(final StepVoRepository stepVoRepository) {

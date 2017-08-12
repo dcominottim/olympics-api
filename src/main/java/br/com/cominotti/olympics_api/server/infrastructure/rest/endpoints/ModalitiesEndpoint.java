@@ -20,7 +20,8 @@ public class ModalitiesEndpoint {
     private UseCaseRegistry useCaseRegistry;
 
 
-    public ModalitiesEndpoint() {}
+    public ModalitiesEndpoint() {
+    }
 
     @Inject
     public ModalitiesEndpoint(final UseCaseRegistry useCaseRegistry) {
@@ -32,9 +33,9 @@ public class ModalitiesEndpoint {
     @Produces("application/json;charset=UTF-8")
     public void getModalities(@Suspended final AsyncResponse asyncResponse) {
         asyncResponse.resume(
-                Response.ok(
-                        useCaseRegistry.run(new ListModalitiesUseCaseInput())
-                ).build()
+            Response.ok(
+                useCaseRegistry.run(new ListModalitiesUseCaseInput())
+            ).build()
         );
     }
 }

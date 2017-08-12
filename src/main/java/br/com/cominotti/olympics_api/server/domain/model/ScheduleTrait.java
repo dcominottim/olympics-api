@@ -21,16 +21,16 @@ public interface ScheduleTrait<TCompetitionTrait extends CompetitionTrait> {
 
     default void addCompetition(final TCompetitionTrait newCompetition) {
         final boolean hasReachedMaxCompetitionsPerDay = getCompetitions().stream()
-                .filter(
-                        comparedCompetition -> comparedCompetition.getStartDateTime().toLocalDate().isEqual(
-                                newCompetition.getStartDateTime().toLocalDate()
-                        )
-                ).collect(Collectors.toList()).stream()
-                .filter(
-                        comparedCompetition -> comparedCompetition.getLocal().equals(
-                                newCompetition.getLocal()
-                        )
-                ).collect(Collectors.toList()).size() == 4;
+            .filter(
+                comparedCompetition -> comparedCompetition.getStartDateTime().toLocalDate().isEqual(
+                    newCompetition.getStartDateTime().toLocalDate()
+                )
+            ).collect(Collectors.toList()).stream()
+            .filter(
+                comparedCompetition -> comparedCompetition.getLocal().equals(
+                    newCompetition.getLocal()
+                )
+            ).collect(Collectors.toList()).size() == 4;
 
 
         if (hasReachedMaxCompetitionsPerDay) {
@@ -38,21 +38,21 @@ public interface ScheduleTrait<TCompetitionTrait extends CompetitionTrait> {
         }
 
         final boolean cannotAddCompetition = getCompetitions().stream().anyMatch(
-                comparedCompetition ->
-                        comparedCompetition.getLocal().equals(newCompetition.getLocal())
-                                && comparedCompetition.getModality().equals(newCompetition.getModality())
-                                && comparedCompetition.getStartDateTime().toLocalDate().equals(
-                                        newCompetition.getStartDateTime().toLocalDate()
-                                )
-                                && new LocalTimeRange(
-                                        newCompetition.getStartDateTime().toLocalTime(),
-                                        newCompetition.getEndDateTime().toLocalTime()
-                                ).overlaps(
-                                        new LocalTimeRange(
-                                                comparedCompetition.getStartDateTime().toLocalTime(),
-                                                comparedCompetition.getEndDateTime().toLocalTime()
-                                        )
-                                )
+            comparedCompetition ->
+                comparedCompetition.getLocal().equals(newCompetition.getLocal())
+                    && comparedCompetition.getModality().equals(newCompetition.getModality())
+                    && comparedCompetition.getStartDateTime().toLocalDate().equals(
+                    newCompetition.getStartDateTime().toLocalDate()
+                )
+                    && new LocalTimeRange(
+                    newCompetition.getStartDateTime().toLocalTime(),
+                    newCompetition.getEndDateTime().toLocalTime()
+                ).overlaps(
+                    new LocalTimeRange(
+                        comparedCompetition.getStartDateTime().toLocalTime(),
+                        comparedCompetition.getEndDateTime().toLocalTime()
+                    )
+                )
         );
 
         if (cannotAddCompetition) {

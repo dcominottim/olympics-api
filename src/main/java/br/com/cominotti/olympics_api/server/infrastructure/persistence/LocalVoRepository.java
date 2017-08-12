@@ -6,4 +6,5 @@ import org.apache.deltaspike.data.api.Repository;
 
 @Repository
 public interface LocalVoRepository extends EntityRepository<LocalVo, Integer> {
+
 }

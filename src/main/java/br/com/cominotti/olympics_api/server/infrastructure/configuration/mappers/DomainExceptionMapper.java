@@ -22,19 +22,20 @@ public class DomainExceptionMapper implements ExceptionMapper<DomainException> {
     @Override
     public Response toResponse(final DomainException exception) {
         final ResourceBundle resourceBundle =
-                ResourceBundle.getBundle(
-                        ResourceBundles.ERRORS.toString(), request.getLocale()
-                );
+            ResourceBundle.getBundle(
+                ResourceBundles.ERRORS.toString(),
+                request.getLocale()
+            );
 
         return Response.status(Response.Status.BAD_REQUEST)
-                .entity(
-                        new ErrorVo(
-                                resourceBundle.getString(
-                                        exception.getErrorMessageKey()
-                                )
-                        )
+            .entity(
+                new ErrorVo(
+                    resourceBundle.getString(
+                        exception.getErrorMessageKey()
+                    )
                 )
-                .type(MediaType.APPLICATION_JSON)
-                .build();
+            )
+            .type(MediaType.APPLICATION_JSON)
+            .build();
     }
 }

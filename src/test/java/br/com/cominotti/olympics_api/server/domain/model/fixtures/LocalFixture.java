@@ -18,7 +18,7 @@ public class LocalFixture {
 
             public boolean equals(Object object) {
                 return LocalTrait.class.isInstance(object)
-                        && ((LocalTrait) object).getId().equals(getId());
+                    && ((LocalTrait) object).getId().equals(getId());
             }
         };
     }

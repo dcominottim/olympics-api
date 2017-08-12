@@ -20,7 +20,8 @@ public class CompetitionsEndpoint {
     private UseCaseRegistry useCaseRegistry;
 
 
-    public CompetitionsEndpoint() {}
+    public CompetitionsEndpoint() {
+    }
 
     @Inject
     public CompetitionsEndpoint(final UseCaseRegistry useCaseRegistry) {

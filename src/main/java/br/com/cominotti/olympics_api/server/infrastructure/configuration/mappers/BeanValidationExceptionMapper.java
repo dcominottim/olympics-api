@@ -23,19 +23,20 @@ public class BeanValidationExceptionMapper implements ExceptionMapper<Validation
     @Override
     public Response toResponse(final ValidationException exception) {
         final ResourceBundle resourceBundle =
-                ResourceBundle.getBundle(
-                        ResourceBundles.ERRORS.toString(), request.getLocale()
-                );
+            ResourceBundle.getBundle(
+                ResourceBundles.ERRORS.toString(),
+                request.getLocale()
+            );
 
         return Response.status(Response.Status.BAD_REQUEST)
-                .entity(
-                        new ErrorVo(
-                                resourceBundle.getString(
-                                        ErrorMessages.GENERIC_BAD_DATA.toString()
-                                )
-                        )
+            .entity(
+                new ErrorVo(
+                    resourceBundle.getString(
+                        ErrorMessages.GENERIC_BAD_DATA.toString()
+                    )
                 )
-                .type(MediaType.APPLICATION_JSON)
-                .build();
+            )
+            .type(MediaType.APPLICATION_JSON)
+            .build();
     }
 }

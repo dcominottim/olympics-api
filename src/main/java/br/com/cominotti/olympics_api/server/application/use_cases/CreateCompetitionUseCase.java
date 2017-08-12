@@ -30,7 +30,8 @@ public class CreateCompetitionUseCase implements RunnableUseCase<CreateCompetiti
     private CompetitionVoRepository competitionVoRepository;
 
 
-    public CreateCompetitionUseCase() {}
+    public CreateCompetitionUseCase() {
+    }
 
     @Inject
     public CreateCompetitionUseCase(final ScheduleRepository scheduleRepository,

@@ -20,10 +20,10 @@ public class LocalTimeRange {
     public boolean overlaps(final LocalTimeRange other) {
         Objects.requireNonNull(other);
         return isBetween(other.from, this.from, this.to)
-                || isBetween(other.to, this.from, this.to)
-                || isBetween(this.from, other.from, other.to)
-                || isBetween(this.to, other.from, other.to)
-                || other.from.equals(this.from);
+            || isBetween(other.to, this.from, this.to)
+            || isBetween(this.from, other.from, other.to)
+            || isBetween(this.to, other.from, other.to)
+            || other.from.equals(this.from);
     }
 
 

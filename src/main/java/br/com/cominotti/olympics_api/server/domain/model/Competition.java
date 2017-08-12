@@ -16,13 +16,13 @@ public class Competition implements CompetitionTrait {
     @Id
     @Column(name = "id")
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = SEQUENCE_NAME
+        strategy = GenerationType.SEQUENCE,
+        generator = SEQUENCE_NAME
     )
     @SequenceGenerator(
-            name = SEQUENCE_NAME,
-            sequenceName = SEQUENCE_NAME,
-            allocationSize = 1
+        name = SEQUENCE_NAME,
+        sequenceName = SEQUENCE_NAME,
+        allocationSize = 1
     )
     private Integer id;
 
@@ -53,7 +53,8 @@ public class Competition implements CompetitionTrait {
     private LocalDateTime endDateTime;
 
 
-    protected Competition() {}
+    protected Competition() {
+    }
 
     public Competition(final Integer id,
                        @NotNull final Competitor competitor1,
@@ -73,16 +74,16 @@ public class Competition implements CompetitionTrait {
         this.endDateTime = Objects.requireNonNull(endDateTime);
 
         final boolean hasInvalidTimeInterval =
-                CompetitionTrait.Validation
-                        .hasInvalidTimeInterval(startDateTime, endDateTime);
+            CompetitionTrait.Validation
+                .hasInvalidTimeInterval(startDateTime, endDateTime);
 
         if (hasInvalidTimeInterval) {
             throw new DomainException(ErrorMessages.COMPETITION_INVALID_TIME_INTERVAL);
         }
 
         final boolean hasInvalidCompetitors =
-                CompetitionTrait.Validation
-                        .hasInvalidCompetitors(step, competitor1, competitor2);
+            CompetitionTrait.Validation
+                .hasInvalidCompetitors(step, competitor1, competitor2);
 
         if (hasInvalidCompetitors) {
             throw new DomainException(ErrorMessages.COMPETITION_INVALID_COMPETITORS);

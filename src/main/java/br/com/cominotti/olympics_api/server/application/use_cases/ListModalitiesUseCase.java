@@ -17,7 +17,8 @@ public class ListModalitiesUseCase implements RunnableUseCase<ListModalitiesUseC
     private ModalityVoRepository modalityVoRepository;
 
 
-    public ListModalitiesUseCase() {}
+    public ListModalitiesUseCase() {
+    }
 
     @Inject
     public ListModalitiesUseCase(final ModalityVoRepository modalityVoRepository) {

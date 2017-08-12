@@ -22,19 +22,20 @@ public class GenericExceptionMapper implements ExceptionMapper<Exception> {
     @Override
     public Response toResponse(final Exception exception) {
         final ResourceBundle resourceBundle =
-                ResourceBundle.getBundle(
-                        ResourceBundles.ERRORS.toString(), request.getLocale()
-                );
+            ResourceBundle.getBundle(
+                ResourceBundles.ERRORS.toString(),
+                request.getLocale()
+            );
 
         return Response.status(Response.Status.BAD_REQUEST)
-                .entity(
-                        new ErrorVo(
-                                resourceBundle.getString(
-                                        ErrorMessages.GENERIC_INTERNAL_SERVER_ERROR.toString()
-                                )
-                        )
+            .entity(
+                new ErrorVo(
+                    resourceBundle.getString(
+                        ErrorMessages.GENERIC_INTERNAL_SERVER_ERROR.toString()
+                    )
                 )
-                .type(MediaType.APPLICATION_JSON)
-                .build();
+            )
+            .type(MediaType.APPLICATION_JSON)
+            .build();
     }
 }

@@ -13,13 +13,13 @@ public class Modality implements ModalityTrait {
     @Id
     @Column(name = "id")
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = SEQUENCE_NAME
+        strategy = GenerationType.SEQUENCE,
+        generator = SEQUENCE_NAME
     )
     @SequenceGenerator(
-            name = SEQUENCE_NAME,
-            sequenceName = SEQUENCE_NAME,
-            allocationSize = 1
+        name = SEQUENCE_NAME,
+        sequenceName = SEQUENCE_NAME,
+        allocationSize = 1
     )
     private Integer id;
 
@@ -27,7 +27,8 @@ public class Modality implements ModalityTrait {
     private String name;
 
 
-    protected Modality() {}
+    protected Modality() {
+    }
 
     public Modality(final Integer id,
                     @NotNull final String name) {

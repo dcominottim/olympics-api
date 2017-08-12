@@ -20,7 +20,8 @@ public class LocalsEndpoint {
     private UseCaseRegistry useCaseRegistry;
 
 
-    public LocalsEndpoint() {}
+    public LocalsEndpoint() {
+    }
 
     @Inject
     public LocalsEndpoint(final UseCaseRegistry useCaseRegistry) {
@@ -32,9 +33,9 @@ public class LocalsEndpoint {
     @Produces("application/json;charset=UTF-8")
     public void getLocals(@Suspended final AsyncResponse asyncResponse) {
         asyncResponse.resume(
-                Response.ok(
-                        useCaseRegistry.run(new ListLocalsUseCaseInput())
-                ).build()
+            Response.ok(
+                useCaseRegistry.run(new ListLocalsUseCaseInput())
+            ).build()
         );
     }
 }

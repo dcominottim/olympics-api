@@ -17,7 +17,8 @@ public class ListLocalsUseCase implements RunnableUseCase<ListLocalsUseCaseInput
     private LocalVoRepository localVoRepository;
 
 
-    public ListLocalsUseCase() {}
+    public ListLocalsUseCase() {
+    }
 
     @Inject
     public ListLocalsUseCase(final LocalVoRepository localVoRepository) {

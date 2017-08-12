@@ -42,7 +42,7 @@ public interface CompetitionTrait {
             Objects.requireNonNull(endDateTime);
 
             return endDateTime.isBefore(startDateTime)
-                            || Duration.between(startDateTime, endDateTime).toMinutes() < MINIMUM_DURATION_IN_MINUTES;
+                || Duration.between(startDateTime, endDateTime).toMinutes() < MINIMUM_DURATION_IN_MINUTES;
         }
 
         static boolean hasInvalidCompetitors(@NotNull final StepTrait step,
@@ -53,7 +53,7 @@ public interface CompetitionTrait {
             Objects.requireNonNull(competitor2);
 
             return step.acceptsSameCompetitors() ? false
-                    : competitor1.equals(competitor2);
+                : competitor1.equals(competitor2);
         }
     }
 }

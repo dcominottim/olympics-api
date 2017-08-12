@@ -14,20 +14,20 @@ public class Schedule implements ScheduleTrait<Competition> {
     @Id
     @Column(name = "id")
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = SEQUENCE_NAME
+        strategy = GenerationType.SEQUENCE,
+        generator = SEQUENCE_NAME
     )
     @SequenceGenerator(
-            name = SEQUENCE_NAME,
-            sequenceName = SEQUENCE_NAME,
-            allocationSize = 1
+        name = SEQUENCE_NAME,
+        sequenceName = SEQUENCE_NAME,
+        allocationSize = 1
     )
     private Integer id;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
-            orphanRemoval = true
+        cascade = CascadeType.ALL,
+        fetch = FetchType.LAZY,
+        orphanRemoval = true
     )
     private Set<Competition> competitions = new HashSet<>();
 

@@ -13,13 +13,13 @@ public class Step implements StepTrait {
     @Id
     @Column(name = "id")
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = SEQUENCE_NAME
+        strategy = GenerationType.SEQUENCE,
+        generator = SEQUENCE_NAME
     )
     @SequenceGenerator(
-            name = SEQUENCE_NAME,
-            sequenceName = SEQUENCE_NAME,
-            allocationSize = 1
+        name = SEQUENCE_NAME,
+        sequenceName = SEQUENCE_NAME,
+        allocationSize = 1
     )
     private Integer id;
 
@@ -30,7 +30,8 @@ public class Step implements StepTrait {
     private Boolean acceptsSameCompetitors;
 
 
-    protected Step() {}
+    protected Step() {
+    }
 
     public Step(final Integer id,
                 @NotNull final String name,

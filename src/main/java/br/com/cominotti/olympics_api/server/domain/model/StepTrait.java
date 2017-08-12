@@ -9,5 +9,6 @@ public interface StepTrait {
     @NotNull
     String name();
 
+    @NotNull
     Boolean acceptsSameCompetitors();
 }

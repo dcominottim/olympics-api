@@ -20,7 +20,8 @@ public class StepsEndpoint {
     private UseCaseRegistry useCaseRegistry;
 
 
-    public StepsEndpoint() {}
+    public StepsEndpoint() {
+    }
 
     @Inject
     public StepsEndpoint(final UseCaseRegistry useCaseRegistry) {
@@ -32,9 +33,9 @@ public class StepsEndpoint {
     @Produces("application/json;charset=UTF-8")
     public void getCompetitors(@Suspended final AsyncResponse asyncResponse) {
         asyncResponse.resume(
-                Response.ok(
-                        useCaseRegistry.run(new ListStepsUseCaseInput())
-                ).build()
+            Response.ok(
+                useCaseRegistry.run(new ListStepsUseCaseInput())
+            ).build()
         );
     }
 }
