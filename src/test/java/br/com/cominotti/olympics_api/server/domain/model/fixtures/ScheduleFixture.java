@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class ScheduleFixture {
 
-    public static ScheduleTrait<CompetitionTrait> newScheduleTrait() {
+    public static ScheduleTrait<CompetitionTrait> newTraitInstance() {
         return new ScheduleTrait<CompetitionTrait>() {
 
             Set<CompetitionTrait> competitions = new HashSet<>();

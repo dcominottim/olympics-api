@@ -45,14 +45,14 @@ public class CompetitionTraitTest {
     public void acceptsValidCompetitors() {
         final boolean areInvalidCompetitors =
             CompetitionTrait.Rules.hasInvalidCompetitors(
-                StepFixture.newInstance(true),
-                CompetitorFixture.newCompetitor(1),
-                CompetitorFixture.newCompetitor(1)
+                StepFixture.newTraitInstance(true),
+                CompetitorFixture.newTraitInstance(1),
+                CompetitorFixture.newTraitInstance(1)
             )
             && !CompetitionTrait.Rules.hasInvalidCompetitors(
-                StepFixture.newInstance(false),
-                CompetitorFixture.newCompetitor(1),
-                CompetitorFixture.newCompetitor(2)
+                StepFixture.newTraitInstance(false),
+                CompetitorFixture.newTraitInstance(1),
+                CompetitorFixture.newTraitInstance(2)
             );
 
         Assert.assertFalse(areInvalidCompetitors);
@@ -62,9 +62,9 @@ public class CompetitionTraitTest {
     public void rejectsInvalidCompetitors() {
         final boolean areInvalidCompetitors =
             CompetitionTrait.Rules.hasInvalidCompetitors(
-                StepFixture.newInstance(false),
-                CompetitorFixture.newCompetitor(1),
-                CompetitorFixture.newCompetitor(1)
+                StepFixture.newTraitInstance(false),
+                CompetitorFixture.newTraitInstance(1),
+                CompetitorFixture.newTraitInstance(1)
             );
 
         Assert.assertTrue(areInvalidCompetitors);

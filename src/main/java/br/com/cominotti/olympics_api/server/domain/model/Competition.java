@@ -1,7 +1,5 @@
 package br.com.cominotti.olympics_api.server.domain.model;
 
-import br.com.cominotti.olympics_api.server.infrastructure.localization.ErrorMessages;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -74,19 +72,17 @@ public class Competition implements CompetitionTrait {
         this.endDateTime = Objects.requireNonNull(endDateTime);
 
         final boolean hasInvalidTimeInterval =
-            Rules
-                .hasInvalidTimeInterval(startDateTime, endDateTime);
+            Rules.hasInvalidTimeInterval(startDateTime, endDateTime);
 
         if (hasInvalidTimeInterval) {
-            throw new DomainException(ErrorMessages.COMPETITION_INVALID_TIME_INTERVAL);
+            throw new Rules.AllowedTimeIntervalViolated();
         }
 
         final boolean hasInvalidCompetitors =
-            Rules
-                .hasInvalidCompetitors(step, competitor1, competitor2);
+            Rules.hasInvalidCompetitors(step, competitor1, competitor2);
 
         if (hasInvalidCompetitors) {
-            throw new DomainException(ErrorMessages.COMPETITION_INVALID_COMPETITORS);
+            throw new Rules.AllowedCompetitorsViolated();
         }
     }
 

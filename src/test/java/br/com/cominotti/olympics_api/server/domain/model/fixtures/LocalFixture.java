@@ -4,7 +4,7 @@ import br.com.cominotti.olympics_api.server.domain.model.LocalTrait;
 
 public class LocalFixture {
 
-    public static LocalTrait newLocalTrait(final Integer id) {
+    public static LocalTrait newTraitInstance(final Integer id) {
         return new LocalTrait() {
             @Override
             public Integer getId() {

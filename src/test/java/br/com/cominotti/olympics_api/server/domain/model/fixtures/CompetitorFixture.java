@@ -4,7 +4,7 @@ import br.com.cominotti.olympics_api.server.domain.model.CompetitorTrait;
 
 public class CompetitorFixture {
 
-    public static CompetitorTrait newCompetitor(final Integer id) {
+    public static CompetitorTrait newTraitInstance(final Integer id) {
         return new CompetitorTrait() {
             @Override
             public Integer getId() {

@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class StepFixture {
 
-    public static StepTrait newInstance(final boolean acceptsSameCompetitors) {
+    public static StepTrait newTraitInstance(final boolean acceptsSameCompetitors) {
         return new StepTrait() {
             @Override
             public Integer getId() {

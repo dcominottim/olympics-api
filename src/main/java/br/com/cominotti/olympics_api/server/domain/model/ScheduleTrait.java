@@ -30,17 +30,17 @@ public interface ScheduleTrait<TCompetitionTrait extends CompetitionTrait> {
             );
 
         if (hasReachedMaxCompetitionsPerDay) {
-            throw new DomainException(ErrorMessages.SCHEDULE_MAXIMUM_COMPETITIONS_PER_DAY_THRESHOLD_REACHED);
+            throw new Rules.MaximumCompetitionsPerDayThresholdReached();
         }
 
-        final boolean violatesCompetitionRules =
-            Rules.violatesCompetitionRules(
+        final boolean hasViolatedCompetitionCriteria =
+            Rules.hasViolatedCompetitionCriteria(
                 getCompetitions().stream(),
                 newCompetition
             );
 
-        if (violatesCompetitionRules) {
-            throw new DomainException(ErrorMessages.SCHEDULE_INVALID_COMPETITION_CRITERIA);
+        if (hasViolatedCompetitionCriteria) {
+            throw new Rules.CompetitionCriteriaViolated();
         }
 
         final Set<TCompetitionTrait> newCompetitionCollection = new HashSet<>(getCompetitions());
@@ -68,8 +68,15 @@ public interface ScheduleTrait<TCompetitionTrait extends CompetitionTrait> {
                 ).collect(Collectors.toList()).size() == 4;
         }
 
-        static boolean violatesCompetitionRules(@NotNull final Stream<? extends CompetitionTrait> competitionStream,
-                                                @NotNull final CompetitionTrait newCompetition) {
+        class MaximumCompetitionsPerDayThresholdReached extends DomainException {
+
+            private MaximumCompetitionsPerDayThresholdReached() {
+                super(ErrorMessages.SCHEDULE_MAXIMUM_COMPETITIONS_PER_DAY_THRESHOLD_REACHED);
+            }
+        }
+
+        static boolean hasViolatedCompetitionCriteria(@NotNull final Stream<? extends CompetitionTrait> competitionStream,
+                                                      @NotNull final CompetitionTrait newCompetition) {
             Objects.requireNonNull(competitionStream);
             Objects.requireNonNull(newCompetition);
 
@@ -90,6 +97,13 @@ public interface ScheduleTrait<TCompetitionTrait extends CompetitionTrait> {
                         )
                     )
             );
+        }
+
+        class CompetitionCriteriaViolated extends DomainException {
+
+            private CompetitionCriteriaViolated() {
+                super(ErrorMessages.SCHEDULE_INVALID_COMPETITION_CRITERIA);
+            }
         }
     }
 }
