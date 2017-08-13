@@ -1,4 +1,4 @@
-package br.com.cominotti.olympics_api.server.infrastructure.persistence;
+package br.com.cominotti.olympics_api.server.infrastructure.persistence.repositories;
 
 import br.com.cominotti.olympics_api.server.infrastructure.rest.views.LocalVo;
 import org.apache.deltaspike.data.api.EntityRepository;

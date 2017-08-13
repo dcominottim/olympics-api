@@ -3,7 +3,7 @@ package br.com.cominotti.olympics_api.server.application.use_cases;
 import br.com.cominotti.olympics_api.server.application.RunnableUseCase;
 import br.com.cominotti.olympics_api.server.domain.model.Competition;
 import br.com.cominotti.olympics_api.server.domain.model.Schedule;
-import br.com.cominotti.olympics_api.server.infrastructure.persistence.*;
+import br.com.cominotti.olympics_api.server.infrastructure.persistence.repositories.*;
 import br.com.cominotti.olympics_api.server.infrastructure.rest.views.CompetitionVo;
 
 import javax.enterprise.context.ApplicationScoped;

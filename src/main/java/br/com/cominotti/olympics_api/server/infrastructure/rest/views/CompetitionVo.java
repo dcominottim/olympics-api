@@ -1,11 +1,14 @@
 package br.com.cominotti.olympics_api.server.infrastructure.rest.views;
 
+import br.com.cominotti.olympics_api.server.infrastructure.persistence.listeners.PreventAnyUpdateListener;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "competition")
+@EntityListeners(PreventAnyUpdateListener.class)
 public class CompetitionVo {
 
     @Id

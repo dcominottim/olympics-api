@@ -2,6 +2,7 @@ package br.com.cominotti.olympics_api.server.infrastructure.rest.endpoints;
 
 import br.com.cominotti.olympics_api.server.application.UseCaseRegistry;
 import br.com.cominotti.olympics_api.server.application.use_cases.ListLocalsUseCaseInput;
+import br.com.cominotti.olympics_api.server.infrastructure.rest.CustomMediaType;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -30,7 +31,7 @@ public class LocalsEndpoint {
 
 
     @GET
-    @Produces("application/json;charset=UTF-8")
+    @Produces(CustomMediaType.APPLICATION_JSON_UTF8)
     public void getLocals(@Suspended final AsyncResponse asyncResponse) {
         asyncResponse.resume(
             Response.ok(

@@ -3,6 +3,7 @@ package br.com.cominotti.olympics_api.server.infrastructure.rest.endpoints;
 import br.com.cominotti.olympics_api.server.application.UseCaseRegistry;
 import br.com.cominotti.olympics_api.server.application.use_cases.CreateCompetitionUseCaseInput;
 import br.com.cominotti.olympics_api.server.application.use_cases.ListCompetitionsUseCaseInput;
+import br.com.cominotti.olympics_api.server.infrastructure.rest.CustomMediaType;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -30,7 +31,7 @@ public class CompetitionsEndpoint {
 
 
     @GET
-    @Produces("application/json;charset=UTF-8")
+    @Produces(CustomMediaType.APPLICATION_JSON_UTF8)
     public void getCompetitions(@Valid @BeanParam final ListCompetitionsUseCaseInput input,
                                 @Suspended final AsyncResponse asyncResponse) {
         asyncResponse.resume(
@@ -41,8 +42,8 @@ public class CompetitionsEndpoint {
     }
 
     @POST
-    @Consumes("application/json;charset=UTF-8")
-    @Produces("application/json;charset=UTF-8")
+    @Consumes(CustomMediaType.APPLICATION_JSON_UTF8)
+    @Produces(CustomMediaType.APPLICATION_JSON_UTF8)
     public void createCompetition(@Valid final CreateCompetitionUseCaseInput input,
                                   @Suspended final AsyncResponse asyncResponse) {
         asyncResponse.resume(

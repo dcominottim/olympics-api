@@ -1,7 +1,7 @@
 package br.com.cominotti.olympics_api.server.application.use_cases;
 
 import br.com.cominotti.olympics_api.server.application.RunnableUseCase;
-import br.com.cominotti.olympics_api.server.infrastructure.persistence.ModalityVoRepository;
+import br.com.cominotti.olympics_api.server.infrastructure.persistence.repositories.ModalityVoRepository;
 import br.com.cominotti.olympics_api.server.infrastructure.rest.views.ModalityVo;
 
 import javax.enterprise.context.ApplicationScoped;

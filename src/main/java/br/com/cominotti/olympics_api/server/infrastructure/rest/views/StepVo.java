@@ -1,13 +1,13 @@
 package br.com.cominotti.olympics_api.server.infrastructure.rest.views;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import br.com.cominotti.olympics_api.server.infrastructure.persistence.listeners.PreventAnyUpdateListener;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "step")
+@EntityListeners(PreventAnyUpdateListener.class)
 public class StepVo {
 
     @Id

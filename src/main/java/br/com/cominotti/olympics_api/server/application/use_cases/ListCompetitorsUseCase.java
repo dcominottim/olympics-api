@@ -1,7 +1,7 @@
 package br.com.cominotti.olympics_api.server.application.use_cases;
 
 import br.com.cominotti.olympics_api.server.application.RunnableUseCase;
-import br.com.cominotti.olympics_api.server.infrastructure.persistence.CompetitorVoRepository;
+import br.com.cominotti.olympics_api.server.infrastructure.persistence.repositories.CompetitorVoRepository;
 import br.com.cominotti.olympics_api.server.infrastructure.rest.views.CompetitorVo;
 
 import javax.enterprise.context.ApplicationScoped;
